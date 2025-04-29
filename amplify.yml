@@ -2,8 +2,9 @@ version: 1
 frontend:
   phases:
     preBuild:
-      commands:
-        - npm ci
+  commands:
+    - npm install -g pnpm
+    - pnpm install --frozen-lockfile
     build:
       commands:
         - npm run build
