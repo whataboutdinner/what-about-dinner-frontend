@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuth } from '@/lib/auth-context';
 import RegisterForm from '@//components/RegisterForm';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 export default function Register() {
   const router = useRouter();
