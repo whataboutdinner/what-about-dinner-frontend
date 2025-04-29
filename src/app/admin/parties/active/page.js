@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../../../lib/auth-context';
-import AuthGuard from '../../../components/AuthGuard';
+import { useAuth } from '@/lib/auth-context';
+import AuthGuard from '@/components/AuthGuard';
 
 export default function PartyManagement() {
   const router = useRouter();

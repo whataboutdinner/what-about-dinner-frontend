@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
-import { useAuth } from '../lib/auth-context';
-import LoginForm from '../components/LoginForm';
+import { useAuth } from '@/lib/auth-context';
+import LoginForm from '@/components/LoginForm';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
