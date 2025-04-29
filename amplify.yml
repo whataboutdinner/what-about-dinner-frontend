@@ -1,20 +1,22 @@
+
 version: 1
 frontend:
   phases:
     preBuild:
-  commands:
-    - npm install -g pnpm
-    - pnpm install --frozen-lockfile
+      commands:
+        - npm install -g pnpm
+        - pnpm install --frozen-lockfile
     build:
       commands:
-        - npm run build
+        - pnpm run build # Changed from npm to pnpm
   artifacts:
     baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
+      - node_modules/.cache/nextjs/**/*
+      - .next/cache/**/*
   customHeaders:
     - pattern: '**/*'
       headers:
