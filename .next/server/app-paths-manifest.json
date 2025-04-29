@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/host/create/page": "app/host/create/page.js",
+  "/host/dashboard/page": "app/host/dashboard/page.js",
+  "/join/page": "app/join/page.js"
+}
