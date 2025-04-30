@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import AuthGuard from '@/components/AuthGuard';
-import { authConfig } from '@/app/dynamic-pages';
 
 export const dynamic = "force-dynamic";
 
