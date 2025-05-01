@@ -1,60 +1,76 @@
 import React from 'react';
 import Link from 'next/link';
 
+// Define color variables for easier management (Tailwind arbitrary values)
+const primaryColor = 'blue-500'; // Example: Using Tailwind's blue-500 for light blue
+const primaryHoverColor = 'blue-600';
+const accentColor = 'gray-200'; // Example: Using Tailwind's gray-200 for light gray
+const textColor = 'gray-800';
+const subtleTextColor = 'gray-600';
+const whiteColor = 'white';
+const focusRingColor = 'blue-400';
+
 export default function HostCreatePage() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50"> {/* Light background */} 
       <div className="container mx-auto py-12 px-4">
-        <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="bg-orange-600 text-white py-6 px-8">
+        {/* Main Card Container */}
+        <div className={`max-w-2xl mx-auto bg-${whiteColor} rounded-lg shadow-xl overflow-hidden border border-${accentColor}`}> 
+          {/* Card Header */}
+          <div className={`bg-${primaryColor} text-${whiteColor} py-6 px-8`}>
             <h1 className="text-3xl font-bold">Host a Food Party</h1>
-            <p className="mt-2">Create a new party and invite friends to join</p>
+            <p className="mt-2 opacity-90">Create a new party and invite friends to join</p>
           </div>
           
+          {/* Card Body / Form */}
           <div className="p-8">
             <form>
+              {/* Party Name Input */}
               <div className="mb-6">
-                <label htmlFor="partyName" className="block text-gray-700 font-medium mb-2">Party Name</label>
+                <label htmlFor="partyName" className={`block text-${textColor} font-medium mb-2`}>Party Name</label>
                 <input 
                   type="text" 
                   id="partyName" 
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className={`w-full px-4 py-3 border border-${accentColor} rounded-lg focus:outline-none focus:ring-2 focus:ring-${focusRingColor}`}
                   placeholder="Enter a name for your party"
                 />
               </div>
               
+              {/* Party Type Selection Cards */}
               <div className="mb-6">
-                <label className="block text-gray-700 font-medium mb-2">Party Type</label>
+                <label className={`block text-${textColor} font-medium mb-2`}>Party Type</label>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="border rounded-lg p-4 cursor-pointer hover:border-orange-500 transition duration-300">
+                  {/* Recipe Voting Card */}
+                  <div className={`border border-${accentColor} rounded-lg p-4 cursor-pointer hover:border-${primaryColor} hover:shadow-md transition duration-300 bg-white`}>
                     <div className="flex items-start">
                       <input 
                         type="radio" 
                         id="recipeVoting" 
                         name="partyType" 
-                        className="mt-1 mr-3"
+                        className="mt-1 mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300" // Styled radio button
                         defaultChecked
                       />
                       <div>
                         <label htmlFor="recipeVoting" className="font-medium cursor-pointer">Recipe Voting</label>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <p className={`text-sm text-${subtleTextColor} mt-1`}>
                           Add recipe options and let everyone vote on what to eat
                         </p>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="border rounded-lg p-4 cursor-pointer hover:border-orange-500 transition duration-300">
+                  {/* Restaurant Order Card */}
+                  <div className={`border border-${accentColor} rounded-lg p-4 cursor-pointer hover:border-${primaryColor} hover:shadow-md transition duration-300 bg-white`}>
                     <div className="flex items-start">
                       <input 
                         type="radio" 
                         id="restaurantOrder" 
                         name="partyType" 
-                        className="mt-1 mr-3"
+                        className="mt-1 mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300" // Styled radio button
                       />
                       <div>
                         <label htmlFor="restaurantOrder" className="font-medium cursor-pointer">Restaurant Order</label>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <p className={`text-sm text-${subtleTextColor} mt-1`}>
                           Select a restaurant and let everyone order their own meal
                         </p>
                       </div>
@@ -63,10 +79,10 @@ export default function HostCreatePage() {
                 </div>
               </div>
               
-              {/* Recipe Options Section - shown when Recipe Voting is selected */}
+              {/* Recipe Options Section (Conditional Logic Needed Here) */}
               <div className="mb-8">
-                <label className="block text-gray-700 font-medium mb-2">Recipe Options</label>
-                <p className="text-sm text-gray-600 mb-4">
+                <label className={`block text-${textColor} font-medium mb-2`}>Recipe Options</label>
+                <p className={`text-sm text-${subtleTextColor} mb-4`}>
                   Add at least 2 recipe options for your guests to vote on
                 </p>
                 
@@ -74,7 +90,7 @@ export default function HostCreatePage() {
                   <div className="flex items-center">
                     <input 
                       type="text" 
-                      className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      className={`flex-1 px-4 py-2 border border-${accentColor} rounded-lg focus:outline-none focus:ring-2 focus:ring-${focusRingColor}`}
                       placeholder="Recipe option 1"
                     />
                   </div>
@@ -82,15 +98,16 @@ export default function HostCreatePage() {
                   <div className="flex items-center">
                     <input 
                       type="text" 
-                      className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      className={`flex-1 px-4 py-2 border border-${accentColor} rounded-lg focus:outline-none focus:ring-2 focus:ring-${focusRingColor}`}
                       placeholder="Recipe option 2"
                     />
                   </div>
                 </div>
                 
+                {/* Add Option Button */}
                 <button 
                   type="button" 
-                  className="mt-3 text-orange-600 font-medium hover:underline flex items-center"
+                  className={`mt-3 text-${primaryColor} font-medium hover:text-${primaryHoverColor} flex items-center transition duration-300`}
                 >
                   <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
@@ -99,48 +116,51 @@ export default function HostCreatePage() {
                 </button>
               </div>
               
+              {/* Create Party Button */}
               <button 
                 type="submit" 
-                className="w-full bg-orange-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-orange-700 transition duration-300"
+                className={`w-full bg-${primaryColor} text-${whiteColor} py-3 px-4 rounded-lg font-medium hover:bg-${primaryHoverColor} transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${focusRingColor}`}
               >
                 Create Party
               </button>
             </form>
             
+            {/* Link to Join Party */}
             <div className="mt-6 text-center">
-              <p className="text-gray-600">
+              <p className={`text-${subtleTextColor}`}>
                 Want to join an existing party instead?{' '}
-                <Link href="/join">
-                  <a className="text-orange-600 font-medium hover:underline">Join a party</a>
+                <Link href="/join" className={`text-${primaryColor} font-medium hover:text-${primaryHoverColor} transition duration-300`}>
+                  Join a party
                 </Link>
               </p>
             </div>
           </div>
         </div>
         
+        {/* How It Works Section (Updated Colors) */}
         <div className="mt-12 max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">How What About Dinner Works</h2>
-          <p className="text-gray-600 mb-8">
+          <h2 className={`text-2xl font-bold text-${textColor} mb-4`}>How What About Dinner Works</h2>
+          <p className={`text-${subtleTextColor} mb-8`}>
             Create a party, invite friends, and make dinner decisions together in three simple steps
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+            <div className={`bg-${whiteColor} p-6 rounded-lg shadow-md border border-${accentColor}`}> 
+              <div className={`w-12 h-12 bg-blue-100 text-${primaryColor} rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4`}>1</div>
               <h3 className="font-bold mb-2">Create a Party</h3>
-              <p className="text-gray-600">Set up your food party and get a unique 6-digit code</p>
+              <p className={`text-${subtleTextColor}`}>Set up your food party and get a unique 6-digit code</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+            <div className={`bg-${whiteColor} p-6 rounded-lg shadow-md border border-${accentColor}`}> 
+              <div className={`w-12 h-12 bg-blue-100 text-${primaryColor} rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4`}>2</div>
               <h3 className="font-bold mb-2">Invite Friends</h3>
-              <p className="text-gray-600">Share your party code with friends and family</p>
+              <p className={`text-${subtleTextColor}`}>Share your party code with friends and family</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+            <div className={`bg-${whiteColor} p-6 rounded-lg shadow-md border border-${accentColor}`}> 
+              <div className={`w-12 h-12 bg-blue-100 text-${primaryColor} rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4`}>3</div>
               <h3 className="font-bold mb-2">Decide Together</h3>
-              <p className="text-gray-600">Everyone votes or orders, and dinner is decided!</p>
+              <p className={`text-${subtleTextColor}`}>Everyone votes or orders, and dinner is decided!</p>
             </div>
           </div>
         </div>
@@ -148,3 +168,4 @@ export default function HostCreatePage() {
     </div>
   );
 }
+
