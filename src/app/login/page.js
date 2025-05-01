@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useState } from 'react';
 import { useAuth } from '@/lib/auth-context';
 import LoginForm from '@/components/LoginForm';

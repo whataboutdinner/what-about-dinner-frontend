@@ -1,10 +1,11 @@
 "use client";
+
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import AuthGuard from '@/components/AuthGuard';
 
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
 
 export default function UserManagement() {
   const router = useRouter();

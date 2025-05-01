@@ -1,7 +1,8 @@
 "use client";
+
 import React, { useState } from 'react';
 import { useAuth } from '@/lib/auth-context';
-import RegisterForm from '@//components/RegisterForm';
+import RegisterForm from '@/components/RegisterForm';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
