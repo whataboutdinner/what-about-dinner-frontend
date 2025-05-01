@@ -1,6 +1,7 @@
-'use client'
+"use client";
 
-import { PartyProvider } from '@/lib/party-context'
+import { AuthProvider } from '@/lib/auth-context';
+import { PartyProvider } from '@/lib/party-context';
 
 export default function RootLayout({
   children,
@@ -11,7 +12,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <PartyProvider>
+          <AuthProvider>
           {children}
+        </AuthProvider>
         </PartyProvider>
       </body>
     </html>
